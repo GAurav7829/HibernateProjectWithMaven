@@ -12,7 +12,9 @@
 		<property name="hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
 		
-		<mapping class="com.tut.Student"/>
-		<mapping class="com.tut.Address"/>
+		<mapping class="com.tut.entities.Student"/>
+		<mapping class="com.tut.entities.Address"/>
+		<mapping class="com.map.entities.Question"/>
+		<mapping class="com.map.entities.Answer"/>
 	</session-factory>
 </hibernate-configuration>
