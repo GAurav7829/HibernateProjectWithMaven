@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -15,6 +16,7 @@ public class Question {
 	private Integer questionId;
 	private String question;
 	@OneToOne
+	@JoinColumn(name = "answer_id")
 	private Answer answer;
 	
 	public Integer getQuestionId() {
@@ -34,11 +36,13 @@ public class Question {
 	}
 	public void setAnswer(Answer answer) {
 		this.answer = answer;
+		this.answer.setQuestion(this);
 	}
 	public Question(String question, Answer answer) {
 		super();
 		this.question = question;
 		this.answer = answer;
+		this.answer.setQuestion(this);
 	}
 	public Question() {
 		super();

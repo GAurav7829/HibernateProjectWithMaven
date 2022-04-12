@@ -29,6 +29,12 @@ public class MapDemo {
 		
 		transaction.commit();
 		
+		//fetch data
+		Question question = session.get(Question.class, 1);
+		System.out.println(question.getQuestion());
+		System.out.println(question.getAnswer().getAnswer());
+		
+		
 		session.close();
 		factory.close();
 	}
