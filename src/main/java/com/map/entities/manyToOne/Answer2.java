@@ -1,4 +1,4 @@
-package com.map.entities;
+package com.map.entities.manyToOne;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,29 +6,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Answer {
+public class Answer2 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "answer_id")
 	private Integer answerId;
 	private String answer;
-	@OneToOne(mappedBy = "answer")
+	@ManyToOne
 	@JoinColumn(name = "question_id")
-	private Question question;
+	private Question2 question;
 	
-	public Answer() {
+	public Answer2() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Answer(String answer) {
+	public Answer2(String answer) {
 		super();
 		this.answer = answer;
 	}
 	
-	public Answer(Integer answerId, String answer) {
+	public Answer2(Integer answerId, String answer) {
 		super();
 		this.answerId = answerId;
 		this.answer = answer;
@@ -45,10 +45,10 @@ public class Answer {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public Question getQuestion() {
+	public Question2 getQuestion() {
 		return question;
 	}
-	public void setQuestion(Question question) {
+	public void setQuestion(Question2 question) {
 		this.question = question;
 	}
 	

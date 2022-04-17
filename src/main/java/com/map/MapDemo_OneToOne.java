@@ -5,10 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.map.entities.Answer;
-import com.map.entities.Question;
+import com.map.entities.oneToOne.Answer;
+import com.map.entities.oneToOne.Question;
 
-public class MapDemo {
+public class MapDemo_OneToOne {
 
 	public static void main(String[] args) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();

@@ -1,23 +1,23 @@
-package com.map.entities;
+package com.map.entities.manyToOne;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Question {
+public class Question2 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "question_id")
 	private Integer questionId;
 	private String question;
-	@OneToOne
-	@JoinColumn(name = "answer_id")
-	private Answer answer;
+	@OneToMany(mappedBy = "question")
+	private List<Answer2> answers;
 	
 	public Integer getQuestionId() {
 		return questionId;
@@ -31,20 +31,22 @@ public class Question {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public Answer getAnswer() {
-		return answer;
+	
+	public List<Answer2> getAnswers() {
+		return answers;
 	}
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
-		this.answer.setQuestion(this);
+	public void setAnswers(List<Answer2> answers) {
+		this.answers = answers;
+		this.answers.iterator().forEachRemaining(answer->answer.setQuestion(this));
 	}
-	public Question(String question, Answer answer) {
+	
+	public Question2(String question, List<Answer2> answers) {
 		super();
 		this.question = question;
-		this.answer = answer;
-		this.answer.setQuestion(this);
+		this.answers = answers;
+		this.answers.iterator().forEachRemaining(answer->answer.setQuestion(this));
 	}
-	public Question() {
+	public Question2() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

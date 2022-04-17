@@ -14,7 +14,9 @@
 		
 		<mapping class="com.tut.entities.Student"/>
 		<mapping class="com.tut.entities.Address"/>
-		<mapping class="com.map.entities.Question"/>
-		<mapping class="com.map.entities.Answer"/>
+		<mapping class="com.map.entities.oneToOne.Question"/>
+		<mapping class="com.map.entities.oneToOne.Answer"/>
+		<mapping class="com.map.entities.manyToOne.Question2"/>
+		<mapping class="com.map.entities.manyToOne.Answer2"/>
 	</session-factory>
 </hibernate-configuration>
